@@ -1,0 +1,26 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: provider
+
+server:
+  port: 10102
+
+dubbo:
+  application:
+    name: consumer
+  registry:
+    address: nacos://192.168.61.140:8848
+  scan:
+    basePackages: com.buck.apache.dubbo.Consumer
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
