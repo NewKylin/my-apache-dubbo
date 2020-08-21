@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser() {
+        try {
+            Thread.sleep(1000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
         User user = new User();
         user.setAddress("广西南宁");
         user.setAge(19);

@@ -81,6 +81,15 @@
                 <version>1.7.2</version>
             </dependency>
             <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-annotation-aspectj</artifactId>
+                <version>1.7.2</version>
+            </dependency>
+            <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-actuator</artifactId>
                 <version>${dubbo-actuator.version}</version>

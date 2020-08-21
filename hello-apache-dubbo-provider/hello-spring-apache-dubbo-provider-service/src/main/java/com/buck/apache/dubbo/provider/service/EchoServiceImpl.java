@@ -3,6 +3,9 @@ package com.buck.apache.dubbo.provider.service;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.buck.apache.dubbo.provider.api.EchoService;
+import com.buck.apache.dubbo.provider.api.UserService;
+import com.buck.apache.dubbo.provider.pojo.User;
+import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -19,15 +22,19 @@ public class EchoServiceImpl implements EchoService {
     @Value("${dubbo.protocol.port}")
     private String port;
 
+    @Reference(version = "1.0.0")
+    private UserService userService;
+
     @Override
     @SentinelResource(value = "echo",fallback = "echoFallback")
     public String echo(String str) {
+
         if (str.equals("321"))
             throw new IllegalArgumentException("invalid arg");
-        return "Echo hello from port:" + port;
+        User user = userService.getUser();
+        return "Echo hello from port:" + user.getName();
     }
     public String echoFallback(String str,Throwable ex){
-        System.out.println("异常了");
         return "系统繁忙，请稍后再试！";
     }
 }

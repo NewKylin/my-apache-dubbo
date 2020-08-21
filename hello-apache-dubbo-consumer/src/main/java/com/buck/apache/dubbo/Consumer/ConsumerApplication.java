@@ -1,5 +1,7 @@
 package com.buck.apache.dubbo.Consumer;
 
+import com.alibaba.csp.sentinel.adapter.dubbo.fallback.DubboFallbackRegistry;
+import com.buck.apache.dubbo.Consumer.fallback.ConsumerFallback;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,5 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ConsumerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication.class,args);
+        DubboFallbackRegistry.setConsumerFallback(new ConsumerFallback());
+        DubboFallbackRegistry.setProviderFallback(new ConsumerFallback());
     }
 }

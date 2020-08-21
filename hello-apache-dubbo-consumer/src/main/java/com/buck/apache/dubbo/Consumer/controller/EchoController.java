@@ -1,5 +1,6 @@
 package com.buck.apache.dubbo.Consumer.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.buck.apache.dubbo.provider.api.EchoService;
 import com.buck.apache.dubbo.provider.api.UserService;
 import com.buck.apache.dubbo.provider.pojo.User;
@@ -25,7 +26,8 @@ public class EchoController {
     private UserService userService;
 
     @GetMapping("/echo/{string}")
-    public String echo(@PathVariable(value = "string") String string){
+    @SentinelResource(value = "EchoController.echo")
+    public String echo(@PathVariable(value = "string") String string) {
         return "Hello Dubbo " + echoService.echo(string);
     }
 
