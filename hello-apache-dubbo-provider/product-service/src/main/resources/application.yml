@@ -6,7 +6,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.61.136:3306/sakila?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
+    url: jdbc:mysql://192.168.61.136:3306/OMS?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -20,19 +20,7 @@ spring:
       connection-test-query: SELECT 1
 
 server:
-  port: 8089
-
-dubbo:
-  application:
-    name: provider
-  registry:
-    address: nacos://192.168.61.140:8848
-  scan:
-    basePackages: com.buck.apache.dubbo.provider
-  protocol:
-    name: dubbo
-    port: 2002
-    serialization: kryo
+  port: 3000
 
 
 management:

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 /**
  * @program: hello-apache-dubbo
  * @description:
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EchoController {
+
+    private static AtomicLong passCount = new AtomicLong(0);
 
     @Reference(version = "1.0.0")
     private EchoService echoService;
@@ -34,5 +38,19 @@ public class EchoController {
     @GetMapping("/user")
     public User getUser(){
         return userService.getUser();
+    }
+
+    @GetMapping("/echo/username")
+    @SentinelResource("echo.getUserName")
+    public String getUserName() {
+        try {
+            if(passCount.incrementAndGet()>10){
+                Thread.sleep(1000);
+            }
+            return "yanxun";
+        }catch (InterruptedException ex){
+            ex.printStackTrace();
+        }
+        return "";
     }
 }

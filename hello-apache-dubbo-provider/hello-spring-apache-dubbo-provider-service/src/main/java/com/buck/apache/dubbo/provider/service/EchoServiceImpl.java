@@ -31,8 +31,8 @@ public class EchoServiceImpl implements EchoService {
 
         if (str.equals("321"))
             throw new IllegalArgumentException("invalid arg");
-        User user = userService.getUser();
-        return "Echo hello from port:" + user.getName();
+        //User user = userService.getUser();
+        return "Echo hello from port:" + port;
     }
     public String echoFallback(String str,Throwable ex){
         return "系统繁忙，请稍后再试！";

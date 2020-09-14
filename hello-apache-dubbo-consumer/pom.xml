@@ -97,8 +97,18 @@
             <artifactId>sentinel-annotation-aspectj</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-cluster-client-default -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-cluster-client-default</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-datasource-nacos -->
+        <dependency>
+        <groupId>com.alibaba.csp</groupId>
+        <artifactId>sentinel-datasource-nacos</artifactId>
         </dependency>
     </dependencies>
 

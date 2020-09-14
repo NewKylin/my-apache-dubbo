@@ -47,7 +47,7 @@ public class CodeAutoGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
 
-        String projectPath = "D:\\work\\JavaCode\\hello-apache-dubbo\\hello-apache-dubbo-provider\\hello-spring-apache-dubbo-provider-service";
+        String projectPath = "D:\\work\\JavaCode\\hello-apache-dubbo\\hello-apache-dubbo-provider\\product-service";
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("jobob");
         gc.setOpen(false);
@@ -56,7 +56,7 @@ public class CodeAutoGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.61.136:3306/sakila?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false");
+        dsc.setUrl("jdbc:mysql://192.168.61.136:3306/PMS?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
@@ -66,7 +66,7 @@ public class CodeAutoGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.buck.apache.dubbo.provider");
+        pc.setParent("com.buck.product");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
