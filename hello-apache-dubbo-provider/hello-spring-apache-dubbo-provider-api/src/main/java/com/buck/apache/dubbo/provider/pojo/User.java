@@ -1,5 +1,7 @@
 package com.buck.apache.dubbo.provider.pojo;
 
+
+
 /**
  * @program: hello-apache-dubbo
  * @description:

@@ -1,0 +1,31 @@
+spring:
+  jmx:
+    enabled: false
+  cloud:
+    gateway:
+      discovery:
+        locator: true
+      routes:
+        - id: NACOS-CONSUMER
+          uri: lb://OMS-Service
+          predicates:
+            - Method=GET,POST
+        - id: NACOS-CONSUMER-FEIGN
+          uri: lb://nacos-consumer-feign
+          predicates:
+            - Method=GET,POST
+    nacos:
+      discovery:
+        server-addr: 192.168.61.140:8848
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
+
+
+management.endpoints.web.exposure.include: '*'
+server:
+  port: 5000
